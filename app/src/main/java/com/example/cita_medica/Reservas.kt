@@ -26,64 +26,85 @@ import androidx.navigation.NavController
 @Composable
 fun Reservas(navController: NavController){
 
-    var email by remember {
+    var run by remember {
         mutableStateOf("")
     }
 
-    var password by remember {
+    var especialidad by remember {
+        mutableStateOf("")
+    }
+
+    var fechaReserva by remember {
+        mutableStateOf("")
+    }
+
+    var horaReserva by remember {
         mutableStateOf("")
     }
 
     Column (
         Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        //verticalArrangement = Arrangement.Center
     ){
 
-        Text(text = "Ingresa datos requeridos para realizar reserva")
+        Text(text = "Ingresa datos requeridos para reserva")
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        OutlinedTextField(value = email, onValueChange = {
-            email = it
+        //Ingreso de RUN
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(text = "Ingrese RUN")
+        OutlinedTextField(value = run, onValueChange = {
+            run = it
 
         }, label = {
-            Text(text = "Ingrese Email")
+            Text(text = "Run")
         })
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        OutlinedTextField(value = password, onValueChange = {
-            password = it
+        //Seleccion de Especialidad
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(text = "Seleccione Especialidad")
+        OutlinedTextField(value = especialidad, onValueChange = {
+            especialidad = it
         }, label = {
-            Text(text = "Contraseña")
-        }, visualTransformation = PasswordVisualTransformation())
+            Text(text = "Especialidad")
+        })
 
         Spacer(modifier = Modifier.height(16.dp))
+
+        //Seleccion de Fecha
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(text = "Seleccione Fecha")
+        OutlinedTextField(value = fechaReserva, onValueChange = {
+            fechaReserva = it
+        }, label = {
+            Text(text = "Fecha")
+        })
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        //Seleccion de Hora
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(text = "Seleccione Hora")
+        OutlinedTextField(value = horaReserva, onValueChange = {
+            horaReserva = it
+        }, label = {
+            Text(text = "Hora")
+        })
+
+        Spacer(modifier = Modifier.height(16.dp))
+
 
         Button(onClick = {
             navController.navigate("Reservas")
         }) {
-            Text(text = "Acceder")
+            Text(text = "Reservar")
         }
 
         Spacer(modifier = Modifier.height(32.dp))
-
-        Text(text = "¿Olvidó Contraseña?", modifier = Modifier.clickable {
-        })
-
-        Spacer(modifier = Modifier.height(32.dp))
-
-        Text(text = "O ingrese con")
-
-        Image(painter = painterResource(id = R.drawable.gmail),
-            contentDescription = "Gmail",
-            modifier = Modifier
-                .size(60.dp)
-                .clickable {
-                    //Click de Gmail
-                }
-        )
 
 
         Text(text = "Presione para volver al login")

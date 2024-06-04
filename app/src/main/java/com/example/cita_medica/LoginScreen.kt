@@ -27,6 +27,10 @@ import androidx.navigation.NavController
 @Composable
 fun LoginScreen(navController: NavController){
 
+    var nombre by remember {
+        mutableStateOf("")
+    }
+
     var email by remember {
         mutableStateOf("")
     }
@@ -48,6 +52,15 @@ fun LoginScreen(navController: NavController){
         Spacer(modifier = Modifier.height(4.dp))
 
         Text(text = "Ingresa a tu cuenta")
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        OutlinedTextField(value = nombre, onValueChange = {
+            nombre = it
+
+        }, label = {
+            Text(text = "Ingrese Nombre Completo")
+        })
 
         Spacer(modifier = Modifier.height(16.dp))
 

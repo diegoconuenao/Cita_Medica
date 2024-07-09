@@ -28,6 +28,9 @@ class MainActivity : ComponentActivity() {
                 composable("Reservas"){
                     Reservas(navController)
                 }
+                composable("Listar"){
+                    Listar(navController)
+                }
 
             })
             //MyComponent()

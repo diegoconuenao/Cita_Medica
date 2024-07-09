@@ -153,11 +153,11 @@ fun Reservas(navController: NavController){
     var horaReserva by remember {
         mutableStateOf("")
     }
-
+/*
     var datosReserva by remember {
         mutableStateOf("")
     }
-
+*/
     Column (
         Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -475,6 +475,17 @@ fun Reservas(navController: NavController){
         }) {
             Text(text = "Ir a Login")
         }
+
+        Spacer(modifier = Modifier.height(32.dp))
+
+
+
+        Button(onClick = {
+            navController.navigate("Listar")
+        }) {
+            Text(text = "Listar Reservas")
+        }
+
     }
 
 }
